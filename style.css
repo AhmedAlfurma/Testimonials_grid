@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap");
+:root {
+  --Moderate-violet: #7541c8;
+  --Very-dark-grayish: #48556a;
+  --Very-dark-blackish: #19212e;
+  --White: #ffffff;
+  --Light-gray: #cfcfcf;
+  --Light-grayish: #ecf2f8;
+}
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+html {
+  font-size: 10px;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background-color: var(--Light-grayish);
+  min-height: 100vh;
+}
+.container {
+  margin: 4rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.2rem 3rem;
+  max-width: 1110px;
+  margin-inline: 2.5rem;
+  transition: 0.3s;
+}
+.container:hover > :not(.card:hover) :not(footer) :not(footer a) {
+  filter: blur(1.5px);
+}
+.card {
+  padding: 2rem;
+  border-radius: 0.6rem;
+  color: var(--Light-grayish);
+  transition: 0.3s;
+}
+.card:hover {
+  box-shadow: 5px 5px 10px rgba(68, 81, 94, 0.5);
+  transform: translateY(-5px);
+  filter: saturate(1.2);
+}
+.card .head {
+  display: flex;
+  align-items: center;
+}
+.card .head img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.card .head img:hover {
+  border: 0;
+}
+.card .head span {
+  display: block;
+  margin-left: 1rem;
+}
+.card .head span {
+  cursor: default;
+}
+.card .head span:first-child {
+  margin-bottom: -0.5rem;
+  color: var(--Light-grayish);
+  font-size: 14px;
+}
+.card .head span:last-child {
+  color: rgb(236 242 248 / 50%);
+  font-size: 12px;
+}
+.card .body {
+  margin-top: 1rem;
+}
+.card .body h2 {
+  line-height: 1.2;
+}
+.card .body p {
+  color: rgb(236 242 248 / 70%);
+  margin-top: 2rem;
+}
+.card.daniel {
+  background-color: var(--Moderate-violet);
+  background-image: url("images/bg-pattern-quotation.svg");
+  background-repeat: no-repeat;
+  background-position: top 0 right 9rem;
+  grid-column: span 2;
+}
+.card.daniel .head img {
+  border: 2px solid #7c3ce2;
+}
+.card.jeanette,
+.card.kira {
+  background-color: var(--White);
+  color: var(--Very-dark-blackish);
+}
+.card.jonathan {
+  background-color: var(--Very-dark-grayish);
+}
+.card.kira {
+  grid-row: span 2;
+}
+.card.patrick {
+  background-color: var(--Very-dark-blackish);
+  grid-column: span 2;
+}
+.card.patrick .head img {
+  border: 2px solid #7c3ce2;
+}
+.card.jeanette .head span:first-child,
+.card.kira .head span:first-child {
+  color: var(--Very-dark-blackish);
+}
+.card.jeanette .head span:last-child,
+.card.kira .head span:last-child {
+  color: rgb(25 33 46 / 50%);
+}
+.card.jeanette .body p,
+.card.kira .body p {
+  color: rgb(25 33 46 / 70%);
+}
+footer {
+  grid-column: span 4;
+  background: linear-gradient(45deg, #48556a, #7541c8, #304058, #ecf2f8);
+  background-size: 400%;
+  color: var(--Light-grayish);
+  text-align: center;
+  padding: 2rem 1rem;
+  transition: 0.3s;
+  animation: change-bg 3s infinite alternate;
+}
+footer:hover {
+  transform: scale(1.01);
+  filter: saturate(1.2);
+}
+footer a {
+  color: #6581b1;
+  text-decoration: none;
+  transition: 0.3s;
+}
+footer a:hover {
+  color: rgb(86, 128, 201);
+  margin: 0 1rem;
+}
+@media (max-width: 991px) {
+  .card.daniel {
+    grid-column: span 2;
+    grid-row: 1;
+    background-position: top 0 right 6rem;
+  }
+  .card.kira {
+    grid-column: 3 / span 2;
+    grid-row: 1;
+  }
+  .card.jonathan {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  .card.patrick {
+    grid-column: 3 / span 2;
+    grid-row: 2 / span 2;
+  }
+  .card.jeanette {
+    grid-column: span 2;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  .card.daniel {
+    background-position: top 0 right 3rem;
+  }
+}
+@keyframes change-bg {
+  from {
+    background-position: left;
+  }
+  to {
+    background-position: top;
+  }
+}
